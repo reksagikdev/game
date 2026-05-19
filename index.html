@@ -1,0 +1,1929 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GAME & POLA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Outfit', sans-serif;
+}
+
+body{
+    background-image: url("bg/gambar12.jpg");
+    background-position:top;
+    min-height:100vh;
+    padding:25px;
+}
+
+/* CONTAINER */
+.container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
+    gap:28px;
+	
+}
+
+/* KOLOM */
+.kolom{
+    background-image: url("bg/gambar2.jpg");
+	background-position:right;
+
+    backdrop-filter: blur(12px);
+
+    border:1px solid rgba(255,255,255,0.22);
+
+    border-radius:15px;
+
+    padding:22px;
+
+    display:flex;
+    flex-direction:column;
+
+    position:relative;
+	scrollbar-color: rgba(100,116,139,0.8) rgba(15,23,42,0.6);
+    scrollbar-width: thin;
+    
+    min-width:0;
+
+    max-height:calc(100vh - 50px);
+
+    overflow-y:auto;
+    overflow-x:hidden;
+
+    box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.04),
+    0 10px 25px rgba(0,0,0,0.55);
+}
+
+.kolom::-webkit-scrollbar{
+    width:10px;
+}
+
+.kolom::-webkit-scrollbar-track{
+    background: rgba(15, 23, 42, 0.6);
+    border-radius: 10px;
+}
+
+.kolom::-webkit-scrollbar-thumb{
+    background: rgba(100, 116, 139, 0.8);
+    border-radius: 10px;
+    border: 2px solid rgba(15, 23, 42, 0.6);
+}
+
+.kolom::-webkit-scrollbar-thumb:hover{
+    background: rgba(148, 163, 184, 0.9);
+}
+
+/* JUDUL */
+.judul{
+    position:relative;
+
+    flex:1;
+
+    overflow:hidden;
+
+    padding:8px 20px;
+
+    border-radius:15px;
+
+    text-align:center;
+
+    color:white;
+
+    font-size:20px;
+    font-weight:700;
+    letter-spacing:1px;
+
+    background-image: url("bg/gambar10.jpg");
+
+
+    border:1px solid rgba(255,255,255,0.10);
+
+outline:1px solid rgba(147,197,253,0.30);
+outline-offset:2px;
+
+box-shadow:
+0 10px 35px rgba(0,0,0,0.55),
+0 0 0 1px rgba(255,255,255,0.05),
+0 0 22px rgba(255,255,255,0.06);
+
+    transition:0.25s ease;
+}
+
+
+/* CARD */
+.card{
+    position:relative;
+
+    background-image: url("bg/gambar3.jpg");
+	background-position:center;
+
+    border:1px solid rgba(255,255,255,0.22);
+
+    border-radius:15px;
+
+    padding:18px;
+    margin-bottom:20px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.04),
+    0 10px 25px rgba(0,0,0,0.55);
+
+    transition:0.2s ease;
+}
+
+
+
+@keyframes imgShine{
+    0%{ left:-60%; }
+    100%{ left:140%; }
+}
+
+.card:hover{
+    
+
+    box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.05),
+    0 12px 30px rgba(0,0,0,0.65);
+}
+
+/* GAMBAR */
+.card img{
+    width:auto;
+    height:auto;
+
+    max-width:100%;
+
+    object-fit:contain;
+
+    background:#0f172a;
+    padding:8px;
+
+    border-radius:15px;
+	
+	
+}
+
+/* BUTTON */
+.copyBtn{
+    position:relative;
+
+    font-family:'Poppins', sans-serif;
+    letter-spacing:0.4px;
+
+    overflow:hidden;
+
+    border:none;
+
+    padding:8px 10px;
+    width:90px;
+
+    border-radius:15px;
+
+    
+    background:
+    linear-gradient(
+        145deg,
+        #facc15,
+        #eab308,
+        #ca8a04
+    );
+
+    color:#111827;
+
+    font-size:12px;
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:0.25s ease;
+
+    
+    outline:1px solid rgba(255,255,255,0.18);
+    outline-offset:1px;
+
+    
+    box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.22),
+    0 4px 12px rgba(234,179,8,0.28);
+}
+.copyBtn::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-75%;
+
+    width:40%;
+    height:100%;
+
+    background:
+    linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.7),
+        transparent
+    );
+
+    transform:skewX(-25deg);
+
+    animation:shine 2.5s infinite;
+}
+
+/* ANIMASI */
+@keyframes shine{
+
+    0%{
+        left:-75%;
+    }
+
+    100%{
+        left:140%;
+    }
+
+}
+
+.copyBtn:hover{
+
+    box-shadow:
+    0 0 22px rgba(250,204,21,0.50);
+}
+
+.copyBtn.success{
+
+    background:
+    linear-gradient(135deg,#2563eb,#60a5fa);
+
+    color:white;
+
+    box-shadow:
+    0 0 18px rgba(59,130,246,0.45);
+}
+
+.buttonGroup{
+    display:flex;
+    gap:12px;
+    justify-content:center;
+    flex-wrap:wrap;
+	margin-top:12px;
+}
+
+
+
+.logo-judul{
+    width:32px;
+    height:32px;
+    object-fit:contain;
+    flex-shrink:0;
+}
+
+.imgBox{
+    position:relative;
+    overflow:hidden;
+
+    border-radius:15px;
+
+    background: linear-gradient(145deg, #0a0f1f, #0f172a, #111827);
+
+    border:1px solid rgba(59,130,246,0.25);
+
+    padding:8px;
+}
+
+/* gambar */
+.imgBox img{
+    width:100%;
+    display:block;
+    border-radius:15px;
+}
+
+/* shine hanya di dalam gambar */
+.imgBox::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-60%;
+    width:40%;
+    height:100%;
+
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.25),
+        transparent
+    );
+
+    transform: skewX(-25deg);
+    animation: imgShine 3.5s infinite;
+}
+
+@keyframes imgShine{
+    0%{ left:-60%; }
+    100%{ left:140%; }
+}
+
+
+.searchBox{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+
+    margin-bottom:25px;
+}
+
+.searchBox input{
+    width:260px;
+
+    padding:12px 16px;
+
+    border:2px solid rgba(96,165,250,0.45);
+
+    outline:none;
+
+    border-radius:16px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #0f172a,
+        #1e293b
+    );
+
+    color:white;
+
+    font-size:14px;
+
+    box-shadow:
+    0 0 0 1px rgba(255,255,255,0.04),
+    0 0 18px rgba(59,130,246,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.searchBox input:focus{
+    border:2px solid rgba(147,197,253,0.75);
+
+    box-shadow:
+    0 0 22px rgba(59,130,246,0.35),
+    0 0 45px rgba(147,197,253,0.15);
+}
+
+.searchBox button{
+    padding:12px 18px;
+
+    border:2px solid rgba(96,165,250,0.45);
+
+    border-radius:16px;
+
+    cursor:pointer;
+
+    font-weight:700;
+
+    background:
+    linear-gradient(
+        145deg,
+        #facc15,
+        #eab308,
+        #ca8a04
+    );
+
+    color:#111827;
+}
+
+.copyright{
+    text-align:center;
+
+    margin-top:30px;
+
+    font-size:10px;
+    font-weight:600;
+    letter-spacing:1px;
+
+    color:rgba(255,255,255,0.7);
+
+    padding:12px;
+
+    border-top:1px solid rgba(255,255,255,0.15);
+
+    width:100%;
+}
+
+.header-box{
+    width:100%;
+
+    display:flex;
+    gap:12px;
+
+    padding:8px;
+
+    border-radius:26px;
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(10,15,25,0.96),
+        rgba(15,23,42,0.92)
+    );
+
+    background-image: url("bg/gambar2.jpg");
+
+    box-shadow:
+    0 12px 35px rgba(0,0,0,0.60),
+    inset 0 1px 0 rgba(255,255,255,0.04),
+    0 0 0 1px rgba(255,255,255,0.02);
+
+    backdrop-filter:blur(10px);
+
+    margin-bottom:24px;
+}
+
+.judul{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+}
+
+
+.logoJudul{
+    width:28px;
+    height:28px;
+	
+    object-fit:contain;
+
+    border-radius:8px;
+	box-shadow:
+    0 0 12px rgba(255,255,255,0.15);
+	padding:4px;
+
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+</style>
+</head>
+<body>
+
+<div class="searchBox">
+
+    <input 
+    type="text" 
+    id="searchInput"
+    placeholder="Cari game..."
+    onkeydown="handleEnter(event)">
+
+    <button onclick="searchGame()">
+        Cari Game
+    </button>
+
+</div>
+
+<div class="header-box">
+
+    <div class="judul">PRAGMATIC
+	<img src="logo/gambar4.png" class="logo-judul">
+	</div>
+
+    <div class="judul">PG SOFT
+	<img src="logo/gambar3.png" class="logo-judul">
+	</div>
+
+</div>
+
+<div class="container">
+
+
+
+    <!-- KOLOM 1 -->
+    <div class="kolom">
+	
+	
+		
+        <div class="card" data-game="Triple Pot Plinko">
+
+    <div class="imgBox">
+        <img src="prag/gambar1.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Triple Pot Plinko - Hercules')">SARAN</button>
+        <button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Candy Rush PP">
+
+    <div class="imgBox">
+        <img src="prag/gambar2.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Candy Rush PP')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Heartbreakers">
+
+    <div class="imgBox">
+        <img src="prag/gambar3.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Heartbreakers')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+
+    </div>
+
+</div>
+
+<div class="card" data-game="Launch To Riches">
+
+    <div class="imgBox">
+        <img src="prag/gambar4.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Launch To Riches')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+
+    </div>
+
+</div>
+
+<div class="card" data-game="Mr Nulls Wicked Wares">
+
+    <div class="imgBox">
+        <img src="prag/gambar5.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Mr Nulls Wicked Wares')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+
+    </div>
+
+</div>
+
+<div class="card" data-game="Sweet Bonanza 2500">
+
+    <div class="imgBox">
+        <img src="prag/gambar6.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Sweet Bonanza 2500')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+
+    </div>
+
+</div>
+
+<div class="card" data-game="The Big Dog House">
+
+    <div class="imgBox">
+        <img src="prag/gambar7.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - The Big Dog House')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+
+    </div>
+
+</div>
+	
+<div class="card" data-game="Big Bass Trophy Catch">
+
+    <div class="imgBox">
+        <img src="prag/gambar8.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Big Bass Trophy Catch')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+
+    </div>
+
+</div>
+
+<div class="card" data-game="Cyber Pup Megaways">
+
+    <div class="imgBox">
+        <img src="prag/gambar9.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Cyber Pup Megaways')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+
+    </div>
+
+</div>
+
+<div class="card" data-game="Gates Of Olympus 1000">
+
+    <div class="imgBox">
+        <img src="prag/gambar10.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Gates Of Olympus 1000')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+
+    </div>
+
+</div>
+
+<div class="card" data-game="Gates Of Olympus Super Scatter">
+
+    <div class="imgBox">
+        <img src="prag/gambar11.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Gates Of Olympus Super Scatter')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Mahjong Wins 3 - Black Scatter">
+
+    <div class="imgBox">
+        <img src="prag/gambar12.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Mahjong Wins 3 - Black Scatter')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+
+    </div>
+
+</div>
+
+<div class="card" data-game="Spaceman">
+
+    <div class="imgBox">
+        <img src="prag/gambar13.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Spaceman')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+
+    </div>
+
+</div>
+
+<div class="card" data-game="Starlight Princess 1000">
+
+    <div class="imgBox">
+        <img src="prag/gambar14.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Starlight Princess 1000')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+
+    </div>
+
+
+</div>
+
+<div class="card" data-game="Gates Of Olympus">
+
+    <div class="imgBox">
+        <img src="prag/gambar15.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Gates Of Olympus')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+
+    </div>
+
+
+</div>
+
+<div class="card" data-game="Mahjong Wins 2">
+
+    <div class="imgBox">
+        <img src="prag/gambar16.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Mahjong Wins 2')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+
+</div>
+
+<div class="card" data-game="Sweet Bonanza 1000">
+
+    <div class="imgBox">
+        <img src="prag/gambar17.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Sweet Bonanza 1000')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Starlight Princess Super Scatter">
+
+    <div class="imgBox">
+        <img src="prag/gambar18.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Starlight Princess Super Scatter')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Gates Of Gatot Kaca 1000">
+
+    <div class="imgBox">
+        <img src="prag/gambar19.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Gates Of Gatot Kaca 1000')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Sweet Bonanza">
+
+    <div class="imgBox">
+        <img src="prag/gambar20.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Sweet Bonanza')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Starlight Princess">
+
+    <div class="imgBox">
+        <img src="prag/gambar21.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Starlight Princess')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Gates Of Gatot Kaca Super Scatter">
+
+    <div class="imgBox">
+        <img src="prag/gambar22.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Gates Of Gatot Kaca Super Scatter')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Sugar Rush 1000">
+
+    <div class="imgBox">
+        <img src="prag/gambar23.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Sugar Rush 1000')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Fortune Of Olympus">
+
+    <div class="imgBox">
+        <img src="prag/gambar24.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Fortune Of Olympus')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Sweet Bonanza Super Scatter">
+
+    <div class="imgBox">
+        <img src="prag/gambar25.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Sweet Bonanza Super Scatter')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Mahjong Wins - Gong Xi Fa Cai">
+
+    <div class="imgBox">
+        <img src="prag/gambar26.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Mahjong Wins - Gong Xi Fa Cai')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Wisdom Of Athena 1000">
+
+    <div class="imgBox">
+        <img src="prag/gambar27.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Wisdom Of Athena 1000')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Pyramid Bonanza">
+
+    <div class="imgBox">
+        <img src="prag/gambar28.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Pyramid Bonanza')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Sweet Rush Bonanza">
+
+    <div class="imgBox">
+        <img src="prag/gambar29.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Sweet Rush Bonanza')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Rujak Bonanza">
+
+    <div class="imgBox">
+        <img src="prag/gambar30.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Rujak Bonanza')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Sweet Bonanza Xmas">
+
+    <div class="imgBox">
+        <img src="prag/gambar31.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Sweet Bonanza Xmas')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Sugar Rush Super Scatter">
+
+    <div class="imgBox">
+        <img src="prag/gambar32.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Sugar Rush Super Scatter')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Sweet Bonanza 1000 Dice">
+
+    <div class="imgBox">
+        <img src="prag/gambar33.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Sweet Bonanza 1000 Dice')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Snow Party">
+
+    <div class="imgBox">
+        <img src="prag/gambar34.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Snow Party')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Mahjong Wins Bonus">
+
+    <div class="imgBox">
+        <img src="prag/gambar35.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Mahjong Wins Bonus')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Inca Queen">
+
+    <div class="imgBox">
+        <img src="prag/gambar36.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Inca Queen')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Idol Pop Fever">
+
+    <div class="imgBox">
+        <img src="prag/gambar37.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Idol Pop Fever')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Jelly Express">
+
+    <div class="imgBox">
+        <img src="prag/gambar38.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Jelly Express')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Gates Of Olympus Xmas 1000">
+
+    <div class="imgBox">
+        <img src="prag/gambar39.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Gates Of Olympus Xmas 1000')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Gates Of Olympus 1000 Dice">
+
+    <div class="imgBox">
+        <img src="prag/gambar40.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Gates Of Olympus 1000 Dice')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Aztec Gems">
+
+    <div class="imgBox">
+        <img src="prag/gambar41.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Aztec Gems')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Bonanza Gold">
+
+    <div class="imgBox">
+        <img src="prag/gambar42.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Bonanza Gold')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Great Ghosts">
+
+    <div class="imgBox">
+        <img src="prag/gambar43.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Great Ghosts')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Gates Of Gatot Kaca">
+
+    <div class="imgBox">
+        <img src="prag/gambar44.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Gates Of Gatot Kaca')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Wild West Gold">
+
+    <div class="imgBox">
+        <img src="prag/gambar45.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Wild West Gold')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Dragon Pots Megaways">
+
+    <div class="imgBox">
+        <img src="prag/gambar46.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Dragon Pots Megaways')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Pragmatic Roulette">
+
+    <div class="imgBox">
+        <img src="prag/gambar47.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Pragmatic Roulette')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Mahjong Wins">
+
+    <div class="imgBox">
+        <img src="prag/gambar48.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Mahjong Wins')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Big Bass Crash">
+
+    <div class="imgBox">
+        <img src="prag/gambar49.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Big Bass Crash')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Sugar Rush">
+
+    <div class="imgBox">
+        <img src="prag/gambar50.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PRAGMATIC - Sugar Rush')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 10X Mulai Dengan Bet Rendah 400 \n\ Perlahan Naikkan SPIN \n\ 20X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 15X Lakukan Spin Manual Tanpa Ceklis \n\ 50X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+<div class="copyright">
+    © 2026 | BY YOGIK
+</div>
+
+</div>
+
+    <!-- KOLOM 2 -->
+    <div class="kolom">
+		
+    
+
+<div class="card" data-game="Reel Royale Showdown">
+
+    <div class="imgBox">
+        <img src="pg/gambar1.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Reel Royale Showdown')">SARAN</button>
+        <button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Funky Fortunez">
+
+    <div class="imgBox">
+        <img src="pg/gambar2.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Funky Fortunez')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Perfect Strike">
+
+    <div class="imgBox">
+        <img src="pg/gambar3.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Perfect Strike')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,'POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Mahjong Ways">
+
+    <div class="imgBox">
+        <img src="pg/gambar4.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Mahjong Ways')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Mahjong Ways 2">
+
+    <div class="imgBox">
+        <img src="pg/gambar5.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Mahjong Ways 2')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Wild Bounty Showdown">
+
+    <div class="imgBox">
+        <img src="pg/gambar6.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Wild Bounty Showdown')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Wild Bandito">
+
+    <div class="imgBox">
+        <img src="pg/gambar7.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Wild Bandito')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+	
+<div class="card" data-game="Lucky Neko">
+
+    <div class="imgBox">
+        <img src="pg/gambar8.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Lucky Neko')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Treasures of Aztec">
+
+    <div class="imgBox">
+        <img src="pg/gambar9.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Treasures of Aztec')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Wild Ape">
+
+    <div class="imgBox">
+        <img src="pg/gambar10.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Wild Ape')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,'POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Pinata Wins">
+
+    <div class="imgBox">
+        <img src="pg/gambar11.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Pinata Wins')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Ways of the Qilin">
+
+    <div class="imgBox">
+        <img src="pg/gambar12.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Ways of the Qilin')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Gemstones Gold">
+
+    <div class="imgBox">
+        <img src="pg/gambar13.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Gemstones Gold')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Geishas Revenge">
+
+    <div class="imgBox">
+        <img src="pg/gambar14.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Geishas Revenge')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Anubis Wrath">
+
+    <div class="imgBox">
+        <img src="pg/gambar15.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Anubis Wrath')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Cocktail Nights">
+
+    <div class="imgBox">
+        <img src="pg/gambar16.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Cocktail Nights')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Mafia Mayhem">
+
+    <div class="imgBox">
+        <img src="pg/gambar17.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Mafia Mayhem')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Mr Treasures Fortune">
+
+    <div class="imgBox">
+        <img src="pg/gambar18.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Mr Treasures Fortune')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Dragon Hatch 2">
+
+    <div class="imgBox">
+        <img src="pg/gambar19.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Dragon Hatch 2')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Speed Winner">
+
+    <div class="imgBox">
+        <img src="pg/gambar20.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Speed Winner')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Inferno Mayhem">
+
+    <div class="imgBox">
+        <img src="pg/gambar21.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Inferno Mayhem')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Yakuza Honor">
+
+    <div class="imgBox">
+        <img src="pg/gambar22.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Yakuza Honor')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Jurassic Kingdom">
+
+    <div class="imgBox">
+        <img src="pg/gambar23.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Jurassic Kingdom')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="The Great Icescape">
+
+    <div class="imgBox">
+        <img src="pg/gambar24.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - The Great Icescape')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Midas Fortune">
+
+    <div class="imgBox">
+        <img src="pg/gambar25.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Midas Fortune')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Asgardian Rising">
+
+    <div class="imgBox">
+        <img src="pg/gambar26.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Asgardian Rising')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,'POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Fortune Dragon PGS">
+
+    <div class="imgBox">
+        <img src="pg/gambar27.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Fortune Dragon PGS')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Ganesha Fortune">
+
+    <div class="imgBox">
+        <img src="pg/gambar28.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Ganesha Fortune')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Dreams Of Macau">
+
+    <div class="imgBox">
+        <img src="pg/gambar29.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Dreams Of Macau')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Poker Kingdom Win">
+
+    <div class="imgBox">
+        <img src="pg/gambar30.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Poker Kingdom Win')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Legend Of Perseus">
+
+    <div class="imgBox">
+        <img src="pg/gambar31.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Legend Of Perseus')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Mayan Destiny">
+
+    <div class="imgBox">
+        <img src="pg/gambar32.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Mayan Destiny')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Mythical Guardians">
+
+    <div class="imgBox">
+        <img src="pg/gambar33.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Mythical Guardians')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,'POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Caishen Wins">
+
+    <div class="imgBox">
+        <img src="pg/gambar34.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Caishen Wins')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Kraken Gold Rush">
+
+    <div class="imgBox">
+        <img src="pg/gambar35.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Kraken Gold Rush')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,'POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Grimms Bounty Hansel & Gretel">
+
+    <div class="imgBox">
+        <img src="pg/gambar36.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Grimms Bounty Hansel & Gretel')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Dragons Treasure Quest">
+
+    <div class="imgBox">
+        <img src="pg/gambar37.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Dragons Treasure Quest')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Dead Mans Riches">
+
+    <div class="imgBox">
+        <img src="pg/gambar38.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Dead Mans Riches')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Rio Fantasia">
+
+    <div class="imgBox">
+        <img src="pg/gambar39.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Rio Fantasia')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Jewels Of Prosperity">
+
+    <div class="imgBox">
+        <img src="pg/gambar40.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Jewels Of Prosperity')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Chocolate Deluxe">
+
+    <div class="imgBox">
+        <img src="pg/gambar41.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Chocolate Deluxe')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Skylight Wonders">
+
+    <div class="imgBox">
+        <img src="pg/gambar42.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Skylight Wonders')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Fortune Horse PG">
+
+    <div class="imgBox">
+        <img src="pg/gambar43.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Fortune Horse PG')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Forbidden Alchemy">
+
+    <div class="imgBox">
+        <img src="pg/gambar44.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Forbidden Alchemy')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Fortune Snake">
+
+    <div class="imgBox">
+        <img src="pg/gambar45.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Fortune Snake')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Alibabas Cave Of Fortune">
+
+    <div class="imgBox">
+        <img src="pg/gambar46.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Alibabas Cave Of Fortune')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Knockout Riches">
+
+    <div class="imgBox">
+        <img src="pg/gambar47.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Knockout Riches')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Pharaoh Royals">
+
+    <div class="imgBox">
+        <img src="pg/gambar48.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Pharaoh Royals')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Cash Mania">
+
+    <div class="imgBox">
+        <img src="pg/gambar49.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Cash Mania')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="card" data-game="Majestic Empire">
+
+    <div class="imgBox">
+        <img src="pg/gambar50.png">
+    </div>
+
+    <div class="buttonGroup">
+        <button class="copyBtn" onclick="copyText(this,'Dicoba mainkan game yang lagi gacor ini bosku di PG SOFT - Majestic Empire')">SARAN</button>
+<button class="copyBtn" onclick="copyText(this,' POLA GAME \n\ \n\ 20X Mulai Dengan Bet Rendah 800 \n\ Perlahan Naikkan SPIN \n\ 30X Spin Cepat (AUTO/TURBO) \n\ Berhenti SPIN \n\ 10X Lakukan Spin Manual Tanpa Ceklis \n\ 100X Spin Cepat (AUTO/TURBO) \n\ Beli Fitur Free Spin (Khusus Slot Buy Spin) \n\ Beli Jikalau Tidak Mendapatkan Free Spin \n\ \n\ 🔥SELAMAT MENCOBA BOSKU & SEMOGA MAXWIN🔥')">POLA</button>
+    </div>
+
+</div>
+
+<div class="copyright">
+    © 2026 | BY YOGIK
+</div>
+
+</div>
+	
+
+<script>
+
+function copyText(button, text){
+
+    let textarea = document.createElement("textarea");
+
+    textarea.value = text;
+
+    document.body.appendChild(textarea);
+
+    textarea.select();
+
+    document.execCommand("copy");
+
+    document.body.removeChild(textarea);
+
+    let originalText = button.dataset.original;
+
+    if(!originalText){
+        originalText = button.innerText;
+        button.dataset.original = originalText;
+    }
+
+    button.innerText = "✔";
+
+    button.classList.add("success");
+
+    setTimeout(() => {
+
+        button.innerText = originalText;
+
+        button.classList.remove("success");
+
+    },1500);
+
+}
+
+
+/* SEARCH GAME */
+function searchGame(){
+
+    let input = document.getElementById("searchInput").value.toLowerCase().trim();
+
+    let cards = document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+
+        let game = (card.dataset.game || "").toLowerCase();
+
+        if(input === "" || game.includes(input)){
+
+            card.style.display = "flex";
+
+        }else{
+
+            card.style.display = "none";
+        }
+
+    });
+
+}
+
+/* ENTER FIX */
+document.addEventListener("DOMContentLoaded", function(){
+
+    document.getElementById("searchInput").addEventListener("keydown", function(event){
+
+        if(event.key === "Enter"){
+
+            searchGame();
+
+        }
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
