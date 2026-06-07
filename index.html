@@ -17,7 +17,7 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Outfit', sans-serif;
+    font-family:'Orbitron',sans-serif;
 }
 
 body{
@@ -85,43 +85,6 @@ body{
 .kolom::-webkit-scrollbar-thumb:hover{
     background: rgba(148, 163, 184, 0.9);
 }
-
-/* JUDUL */
-.judul{
-    position:relative;
-
-    flex:1;
-font-family:'Orbitron',sans-serif;
-    overflow:hidden;
-
-    padding:8px 20px;
-
-    border-radius:15px;
-
-    text-align:center;
-
-    color:white;
-
-    font-size:20px;
-    font-weight:700;
-    letter-spacing:1px;
-
-    background-image: url("bg/gambar10.jpg");
-
-
-    border:1px solid rgba(255,255,255,0.10);
-
-outline:1px solid rgba(147,197,253,0.30);
-outline-offset:2px;
-
-box-shadow:
-0 10px 35px rgba(0,0,0,0.55),
-0 0 0 1px rgba(255,255,255,0.05),
-0 0 22px rgba(255,255,255,0.06);
-
-    transition:0.25s ease;
-}
-
 
 /* CARD */
 .card{
@@ -285,15 +248,6 @@ box-shadow:
 	margin-top:12px;
 }
 
-
-
-.logo-judul{
-    width:32px;
-    height:32px;
-    object-fit:contain;
-    flex-shrink:0;
-}
-
 .imgBox{
     position:relative;
     overflow:hidden;
@@ -428,7 +382,7 @@ box-shadow:
     width:100%;
 
     display:flex;
-    gap:12px;
+    gap:32px;
 
     padding:8px;
 
@@ -454,28 +408,64 @@ box-shadow:
 }
 
 .judul{
+    position:relative;
+
     display:flex;
-
     align-items:center;
-
     justify-content:center;
+	
+    gap:8px;
 
-    gap:10px;
+    color:#fff;
+
+    font-size:25px;
+    font-weight:700;
+
+    margin-bottom:3px;
+
+    padding-bottom:12px;
 }
 
+.judul::after{
+    content:"";
 
-.logoJudul{
-    width:28px;
-    height:28px;
-	
+    position:absolute;
+
+    bottom:0;
+    left:0;
+
+    width:100%;
+    height:2px;
+
+    border-radius:999px;
+
+    background:
+    linear-gradient(
+        90deg,
+        rgba(59,130,246,0),
+        rgba(59,130,246,.9),
+        rgba(59,130,246,0)
+    );
+
+    box-shadow:
+    0 0 12px rgba(59,130,246,.35);
+}
+
+.judulContainer{
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:24px;
+
+    margin-bottom:25px;
+}
+
+.logo-judul{
+    width:30px;
+    height:30px;
+
     object-fit:contain;
-
-    border-radius:8px;
-	box-shadow:
-    0 0 12px rgba(255,255,255,0.15);
-	padding:4px;
-
-    border:1px solid rgba(255,255,255,0.08);
 }
 
 </style>
@@ -496,15 +486,17 @@ box-shadow:
 
 </div>
 
-<div class="header-box">
+<div class="judulContainer">
 
-    <div class="judul">PRAGMATIC
-	<img src="logo/gambar4.png" class="logo-judul">
-	</div>
+    <div class="judul">
+        <img src="logo/gambar4.png" class="logo-judul">
+        <span>PRAGMATIC</span>
+    </div>
 
-    <div class="judul">PG SOFT
-	<img src="logo/gambar3.png" class="logo-judul">
-	</div>
+    <div class="judul">
+        <img src="logo/gambar3.png" class="logo-judul">
+        <span>PG SOFT</span>
+    </div>
 
 </div>
 
